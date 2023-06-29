@@ -1,0 +1,93 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición de Glosa</h3>
+  <form (ngSubmit)= "onSubmit()" #glosaForm = "ngForm">
+
+   <!---edicion campo  numerofactura ------------------------------------------------------->
+    <div class="form-group">
+      <label>numerofactura : </label>
+      <input type = "text"
+      class="form-control"
+      id = "numerofactura"
+      [(ngModel)] = "glosa.numerofactura"
+      name = "numerofactura"
+      required
+      minlength="4"
+      maxlength="10"
+      placeholder="Digite su numerofactura "
+      #numerofactura = "ngModel"
+      >
+      <!---edicion campo  numerofactura ----->
+      <div class="alert alert-danger" *ngIf= "numerofactura.invalid && (numerofactura.dirty || numerofactura.touched)">
+        <div *ngIf = "numerofactura.errors.required">
+          Digite su numerofactura por favor
+        </div>
+        <div *ngIf = "numerofactura.errors.minlength">
+          El numerofactura tiene que contener como minimo 4 caracteres
+        </div>
+        <div *ngIf = "numerofactura.errors.maxlength">
+          El numerofactura tiene que tener como maximo 10 caracteres
+        </div>
+      </div>
+    </div>
+  <!---edicion campo  numerofactura ------------------------------------------------------->
+
+  <!---edicion campo  entidad ------------------------------------------------------->
+    <div class="form-group">
+      <label>entidad : </label>
+      <input type = "text"
+      class="form-control"
+      id = "entidad"
+      [(ngModel)] = "glosa.entidad"
+      name = "entidad"
+      required
+      minlength="4"
+      maxlength="10"
+      placeholder="Digite su entidad "
+      #entidad = "ngModel"
+      >
+      <!---edicion campo  entidad ----->
+      <div class="alert alert-danger" *ngIf= "entidad.invalid && (entidad.dirty || entidad.touched)">
+        <div *ngIf = "entidad.errors.required">
+          Digite su entidad por favor
+        </div>
+        <div *ngIf = "entidad.errors.minlength">
+          La entidad tiene que contener como minimo 4 caracteres
+        </div>
+        <div *ngIf = "entidad.errors.maxlength">
+          La entidad tiene que tener como maximo 10 caracteres
+        </div>
+      </div>
+  <!---edicion campo  entidad ------------------------------------------------------->
+
+  <!---edicion campo  clasificacion ------------------------------------------------------->
+    </div>
+
+    <div class="form-group">
+      <label>clasificacion : </label>
+      <input type = "text"
+      class="form-control"
+      id = "clasificacion"
+      [(ngModel)] = "glosa.clasificacion"
+      name = "clasificacion"
+      pattern ="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+      required
+      placeholder="Digite su clasificacion "
+      #clasificacion = "ngModel"
+      >
+      <!---edicion campo  clasificacion ----->
+      <div class="alert alert-danger" *ngIf= "clasificacion.invalid && (clasificacion.dirty || clasificacion.touched)">
+        <div *ngIf = "clasificacion.errors.required">
+          Digite su clasificacion por favor
+        </div>
+        <div *ngIf = "clasificacion.errors.minlength">
+          La clasificacion tiene que contener como minimo 4 caracteres
+        </div>
+        <div *ngIf = "clasificacion.errors.maxlength">
+          La clasificacion tiene que tener como maximo 10 caracteres
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]= "!glosaForm.form.valid">Guardar</button>
+  </form>
+</div>

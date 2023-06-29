@@ -1,0 +1,12 @@
+/* styles.css (o el archivo CSS del componente) */
+
+.title {
+  font-family: 'Garamond', serif;
+  font-size: 15px;
+}
+
+/*  letras y tmaño cambia estilo barra anvegacion*/
+.nav-link-custom {
+  font-size: 40px; /* Ajusta el tamaño de la fuente según lo necesites */
+  color: yellow !important;
+}

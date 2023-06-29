@@ -1,19 +1,136 @@
-<h2>Lista De Glosas</h2>
 
-<table class = "table table-stripped">
-  <thead class= "table-dark">
-    <tr>
-      <th>numerofactura</th>
-      <th>entidad</th>
-      <th>clasificacion</th>
-    </tr>
-  </thead>
+<!-- -------------------------------------------------------------------------------------- -->
 
-  <tbody>
-    <tr>
-      <th>numerofactura</th>
-      <th>entidad</th>
-      <th>clasificacion</th>
-    </tr>
-  </tbody>
-</table>
+<h2 class="text-primary display-4 custom-title text-center custom-text">Libro (Glosas Y Devoluciones)</h2>
+<br>
+<br>
+
+<!-- Campo de entrada y botón de búsqueda -->
+<div class="search-container d-flex flex-column align-items-start">
+  <input [(ngModel)]="terminoBusqueda"
+         class="form-control mb-2"
+         style="width: 30%; height: 50px; font-size: 1.5em;"
+         placeholder="Ingrese término de búsqueda" />
+  <button (click)="buscarGlosas()"
+          class="btn btn-primary"
+          style="width: 30%; height: 50px; font-size: 1.5em;">Buscar</button>
+</div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- codigo de la tabla -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-15">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-left table-bordered-elegant" >
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" class="larger-header">NUMERO FACTURA</th>
+              <th scope="col" class="larger-header">ENTIDAD</th>
+              <th scope="col" class="larger-header">CLASIFICACION</th>
+              <th scope="col" class="larger-header">VALOR TOTAL FACTURA</th>
+              <th scope="col" class="larger-header">FECHA RECEPCION GLOSA</th>
+              <th scope="col" class="larger-header">VALOR TOTAL GLOSA O RATIFI</th>
+              <th scope="col" class="larger-header">DIAS TRAMITE</th>
+              <th scope="col" class="larger-header">FECHA RADICACION RTA GLOSA</th>
+              <th scope="col" class="larger-header">OPORTUNIDAD</th>
+              <th scope="col" class="larger-header">CONSGLOSA</th>
+              <th scope="col" class="larger-header">OBSERVACIONES</th>
+              <th scope="col" class="larger-header">CANTIDAD_RECEPCION</th>
+              <th scope="col" class="larger-header">VALOR ACEPTADO</th>
+              <th scope="col" class="larger-header">NOTA CREDITO</th>
+              <th scope="col" class="larger-header">-SOPORTES-</th>
+
+              <th scope="col" class="larger-header"></th>
+
+              <th scope="col" class="larger-header">-OPCIONES EDICION-</th>
+              <th scope="col" class="larger-header"></th>
+
+              <th scope="col" class="larger-header">FACTURA LLEGO X DEV</th>
+              <th scope="col" class="larger-header">CONCILIDADA</th>
+              <th scope="col" class="larger-header">RATIFICADA X CONCILIACION</th>
+              <th scope="col" class="larger-header">VALOR RATIFICADO CONCILICACION</th>
+              <th scope="col" class="larger-header">Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let glosa of glosas">
+              <td class="custom-td">{{ glosa.numerofactura }}</td>
+              <td class="custom-td">{{ glosa.entidad }}</td>
+              <td class="custom-td">{{ glosa.clasificacion }}</td>
+              <td class="custom-td">{{ glosa.valortotalfactura }}</td>
+              <td class="custom-td">{{ glosa.fecharecepcionglosa }}</td>
+              <td class="custom-td">{{ glosa.valortotalglosaoratifi }}</td>
+              <td class="custom-td">{{ glosa.diastramite }}</td>
+              <td class="custom-td">{{ glosa.fecharadicacionrtaglosa }}</td>
+              <td class="custom-td">{{ glosa.oportunidad }}</td>
+              <td class="custom-td">{{ glosa.consglosa }}</td>
+              <td class="custom-td">{{ glosa.observaciones }}</td>
+              <td class="custom-td">{{ glosa.cantidadrecepciones }}</td>
+              <td class="custom-td">{{ glosa.valoraceptado }}</td>
+              <td class="custom-td">{{ glosa.llegofacturaxdev }}</td>
+              <td class="custom-td">{{ glosa.notacredito }}</td>
+              <td class="custom-td">{{ glosa.soportes }}</td>
+
+              <td>
+                <button (click)="actualizarGlosa(glosa.id)" class="btn btn-info boton-grande">Editar</button>
+                <button (click)="eliminarGlosa(glosa.id)" class="btn btn-danger boton-grande ml-2">Eliminar</button>
+                <button (click)="verDetallesGlosa(glosa.id)" class="btn btn-primary boton-grande ml-2">Detalles</button>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------------------------------------------------------------------------------------------->
+
+<!---
+
+<br>
+<br>
+<h2 style="color: green; font-size: 40px;">Libro Devoluciones</h2>
+
+<div class="table-container">
+  <table class="table table-stripped">
+    <thead class="table-dark">
+      <tr>
+        <th>FACTURA_LLEGO_X_DEV</th>
+        <th>CONCILIDADA</th>
+        <th>RATIFICADA_X_CONCILIACION</th>
+        <th>VALOR_RATIFICADO_CONCILICACION</th>
+      </tr>
+    </thead>
+
+    -ESTE BODY SE CMABIA CON VALORES QUE SON  ---
+    <tbody>
+      <tr *ngFor="let glo of glosas">
+        <td>{{ glo.numerofactura }}</td>
+        <td>{{ glo.entidad }}</td>
+        <td>{{ glo.clasificacion }}</td>
+        <td>{{ glo.valortotalfactura }}</td>
+        <td>
+          <button> (click) = "actualizarGlosa(glosa.id)" class ="btn btn-info"> Editar</button>
+          <button> (click) = "eliminarGlosa(glosa.id)" class ="btn btn-danger" style="margin-left : 10px"> Eliminar</button>
+          <button> (click) = "verDetallesGlosa(glosa.id)" class ="btn btn-primary" style="margin-left : 10px"> Detalles</button>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+                                        ----->
+

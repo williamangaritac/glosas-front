@@ -1,7 +1,7 @@
-import { Glosas } from './glosas';
+import { Glosa } from './glosas';
 
 describe('Glosas', () => {
   it('should create an instance', () => {
-    expect(new Glosas()).toBeTruthy();
+    expect(new Glosa()).toBeTruthy();
   });
 });

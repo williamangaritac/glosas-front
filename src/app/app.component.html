@@ -1,2 +1,39 @@
-<h1 class ="text-center"> {{title}}</h1>
-<app-lista-glosas></app-lista-glosas>
+<!-- Se define barra de navegacion -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <ul class="navbar-nav">
+
+    <!-- Primera pestaña barra navegacion Lista_Glosas -->
+    <li class="nav-item">
+      <a routerLink="glosas" routerLinkActive="active" class="nav-link nav-link-custom"> (Lista_Glosas) - </a>
+    </li>
+
+    <!-- Segunda pestaña barra navegacion Añadir GSlosas -->
+    <li class="nav-item">
+      <a routerLink="registrar-glosa" routerLinkActive="active" class="nav-link nav-link-custom"> (Añadir_Glosa)</a>
+    </li>
+  </ul>
+</nav>
+<!-- Hasta Aqui va la barra de navegacion -->
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+<!-- Este titulo viene desde angular -->
+<!--<h1 [ngStyle]="titleStyle">{{ title }}</h1>-->
+
+<!-- Este titulo PRINCIPAL se invoca con string interpolation -->
+ <!--<h1 class="text-center" style="font-size: 4rem;">{{title}}</h1>-->
+
+
+<h1 [style]="getCustomStyle()">{{ title }}</h1>
+
+
+ <!-- Aqui se rutean todos los componentes -->
+<div class="container">
+ <!--<app-lista-glosas> </app-lista-glosas>-->
+ <router-outlet></router-outlet>
+</div>
+
+
+
+

@@ -1,0 +1,61 @@
+/* styles.css */
+
+.search-container {
+  position: absolute;
+  left: 10%;
+  width: 50%;
+}
+
+th,
+td {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.table-responsive {
+  position: absolute;
+  left: 0;
+}
+
+.custom-title {
+  font-size: 4em; /* Ajusta el tamaño de la letra según tus preferencias */
+  font-weight: bold; /* Añade negrita a la letra */
+  font-family: Arial, sans-serif; /* Elige una fuente que tenga un estilo empresarial */
+  width: max-content; /* Ajusta el ancho automáticamente según el contenido */
+}
+
+.custom-text {
+  color: rgb(61, 5, 5)!important;; /* Aquí puedes especificar el color deseado */
+}
+
+.text-center {
+  text-align: center;
+  margin-left: 150px; /* Ajusta el valor según sea necesario */
+}
+
+.larger-header {
+  font-size: 25px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  padding: 20px; /* Ajusta el espaciado interno según tus necesidades */
+}
+
+.boton-grande {
+  padding: 1px 3px;
+  font-size: 20px;
+}
+
+.custom-td {
+  font-size: 1.5em;  /* Ajusta este valor hasta conseguir el tamaño deseado */
+  font-weight: bold;  /* Esto hará que el texto esté en negrita */
+  text-align: center;
+}
+
+.table-bordered-elegant {
+  border: 50px solid #ccc;
+  box-shadow: 5 30 50px rgba(0,0,0,.15);
+  border-radius: 90px;
+  overflow: hidden;  /* Para que el borde redondeado se aplique correctamente */
+}
